@@ -1,3 +1,14 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@using Client.Components
+@using ComponentsLibrary.Map
+@using Radzen
+
+<RadzenRow style="height: 100%" Gap="1rem">
+    <RadzenColumn>
+        <Map Zoom="@zoom" Markers="@markers" />
+    </RadzenColumn>
+    <RadzenColumn Size="2">
+        <StationSearchMenu OnDisplayButtonClicked="@OnSearchMeasuringStations" />
+    </RadzenColumn>
+</RadzenRow>

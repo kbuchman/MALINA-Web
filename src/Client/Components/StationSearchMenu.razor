@@ -1,0 +1,41 @@
+﻿@using Radzen
+
+<RadzenCard Variant="@Variant.Flat">
+    <RadzenStack Orientation="@Orientation.Vertical" 
+                 Gap="1rem"
+                 JustifyContent="@JustifyContent.Center"
+                 Style="color: white">
+        <RadzenText Text="Search available stations" TextStyle="TextStyle.H6" Style="text-align: center" />
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            Name
+            <RadzenTextBox Placeholder="Search" @bind-Value="@name"></RadzenTextBox>
+        </RadzenStack>
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            Address
+            <RadzenTextBox Placeholder="Search" @bind-Value="@address"></RadzenTextBox>
+        </RadzenStack>
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            Owner
+            <RadzenTextBox Placeholder="Search" @bind-Value="@owner"></RadzenTextBox>
+        </RadzenStack>
+
+        @*
+        TODO:    
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            Data type
+            <RadzenTextBox></RadzenTextBox>
+            @* <RadzenPickList>
+                <SourceHeader>
+                    Data types:
+                </SourceHeader>
+                <TargetHeader>
+                    Selected data types:
+                </TargetHeader>
+                <Template>
+                    Company: @context.CompanyName
+                </Template>
+            </RadzenPickList> 
+        </RadzenStack> *@
+        <RadzenButton Text="Display" Click="@OnClick"/> 
+    </RadzenStack>
+</RadzenCard>

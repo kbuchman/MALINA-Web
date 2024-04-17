@@ -29,6 +29,13 @@
                 var markersGroup = new L.featureGroup(map.addedMarkers);
                 map.fitBounds(markersGroup.getBounds().pad(0.3));
             }
+
+            map.on('popupopen', function (e) {
+                DotNet.invokeMethodAsync('BlazorSample', 'ReturnMarkerPopupOpen', e.popup._source)
+                    .then(data => {
+                        console.log(data);
+                    });
+            });
         }
-    };
+    }
 })();

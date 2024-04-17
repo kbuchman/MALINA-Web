@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+@using Radzen
+
+<RadzenLayout>
+    <RadzenHeader>
+        <RadzenStack Orientation="@Orientation.Horizontal"
+                     AlignItems="@AlignItems.Center"
+                     JustifyContent="@JustifyContent.SpaceBetween"
+                     Gap="1rem">
+            <RadzenSidebarToggle Click="@(() => leftSidebarExpanded = !leftSidebarExpanded)" />
+            <RadzenText TextStyle="TextStyle.DisplayH5" Text="Spy the Noise" />
+            <RadzenImage Path="img/logo.svg" Style="width: 5rem;"></RadzenImage>
+        </RadzenStack>
+    </RadzenHeader>
+    <RadzenSidebar @bind-Expanded="@leftSidebarExpanded">
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Path="/" Text="Home" Icon="home" />
+            <RadzenPanelMenuItem Path="/about" Text="About" Icon="account_balance" />
+        </RadzenPanelMenu>
+    </RadzenSidebar>
+    <RadzenBody>
+        @Body
+    </RadzenBody>
+    <RadzenFooter>
+        Here should be some footer things
+    </RadzenFooter>
+</RadzenLayout>
+
+@code
+{
+    bool leftSidebarExpanded = false;
+}
